@@ -1,0 +1,1459 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>象达人面竹纸伞 - 非遗文化传承</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#8B0000', // 深红色主色调
+                        secondary: '#228B22', // 竹绿色辅助色
+                        neutral: '#F5F5DC', // 米白色背景
+                        dark: '#333333', // 深灰色文字
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            }
+            .transition-transform {
+                transition-property: transform;
+                transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+                transition-duration: 300ms;
+            }
+            .hover-scale {
+                @apply hover:scale-105 transition-all duration-300;
+            }
+            .card-shadow {
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            }
+        }
+    </style>
+</head>
+<body class="bg-neutral text-dark">
+    <!-- 导航栏 -->
+    <nav id="navbar" class="fixed w-full bg-primary/90 text-white z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="text-xl font-bold">象达人面竹纸伞</div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#culture" class="hover:text-secondary transition-colors">文化渊源</a>
+                <a href="#craft" class="hover:text-secondary transition-colors">制作工艺</a>
+                <a href="#structure" class="hover:text-secondary transition-colors">伞结构</a>
+                <a href="#innovation" class="hover:text-secondary transition-colors">技术创新</a>
+                <a href="#ip" class="hover:text-secondary transition-colors">Q版IP</a>
+                <a href="#shop" class="hover:text-secondary transition-colors">商城</a>
+                <a href="#about" class="hover:text-secondary transition-colors">关于我们</a>
+                <a href="#team" class="hover:text-secondary transition-colors">核心团队</a>
+                <a href="#contact" class="hover:text-secondary transition-colors">联系我们</a>
+            </div>
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-white focus:outline-none">
+                    <i class="fa fa-bars text-xl"></i>
+                </button>
+            </div>
+            <div class="relative">
+                <button id="cart-button" class="flex items-center bg-white/20 hover:bg-white/30 transition-colors px-3 py-1 rounded-full">
+                    <i class="fa fa-shopping-cart mr-2"></i>
+                    <span id="cart-count" class="bg-secondary text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">0</span>
+                </button>
+                <div id="cart-dropdown" class="absolute right-0 mt-2 w-64 bg-white text-dark rounded-lg shadow-lg hidden">
+                    <div class="p-3 border-b">
+                        <h3 class="font-bold">购物车</h3>
+                    </div>
+                    <div id="cart-items" class="p-3 max-h-60 overflow-y-auto">
+                        <!-- 购物车项目将在这里动态添加 -->
+                        <p class="text-center text-sm text-gray-500">购物车为空</p>
+                    </div>
+                    <div class="p-3 border-t">
+                        <div class="flex justify-between mb-2">
+                            <span>总计:</span>
+                            <span id="cart-total" class="font-bold">¥0.00</span>
+                        </div>
+                        <button class="w-full bg-primary text-white py-2 rounded hover:bg-primary/90 transition-colors">结算</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 移动端菜单 -->
+        <div id="mobile-menu" class="hidden md:hidden bg-primary/95">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-4">
+                <a href="#culture" class="hover:text-secondary transition-colors py-2">文化渊源</a>
+                <a href="#craft" class="hover:text-secondary transition-colors py-2">制作工艺</a>
+                <a href="#structure" class="hover:text-secondary transition-colors py-2">伞结构</a>
+                <a href="#innovation" class="hover:text-secondary transition-colors py-2">技术创新</a>
+                <a href="#ip" class="hover:text-secondary transition-colors py-2">Q版IP</a>
+                <a href="#shop" class="hover:text-secondary transition-colors py-2">商城</a>
+                <a href="#about" class="hover:text-secondary transition-colors py-2">关于我们</a>
+                <a href="#team" class="hover:text-secondary transition-colors py-2">核心团队</a>
+                <a href="#contact" class="hover:text-secondary transition-colors py-2">联系我们</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区 -->
+    <header class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E9%A6%96%E9%A1%B5%E5%A3%81%E7%BA%B8.jpg?raw=true" alt="象达人面竹纸伞" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/40"></div>
+        </div>
+        <div class="container mx-auto px-4 z-10 text-center">
+            <h1 class="text-[clamp(2.5rem,5vw,4rem)] font-bold text-white mb-6 text-shadow animate-fade-in">象达人面竹纸伞</h1>
+            <p class="text-[clamp(1rem,2vw,1.5rem)] text-white mb-8 max-w-2xl mx-auto text-shadow">传承三百年非遗技艺，匠心打造文化瑰宝</p>
+            <a href="#shop" class="bg-primary hover:bg-primary/90 text-white font-bold py-3 px-8 rounded-full inline-block transition-all duration-300 hover:scale-105 shadow-lg">
+                探索商城
+            </a>
+        </div>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+            <a href="#culture" class="text-white">
+                <i class="fa fa-angle-down text-3xl"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- 文化渊源板块 -->
+    <section id="culture" class="py-20 bg-neutral">
+        <div class="container mx-auto px-4">
+            <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-center mb-12 text-primary">文化渊源</h2>
+            <div class="grid md:grid-cols-3 gap-8 items-center">
+                <div class="md:col-span-1">
+                    <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E6%96%87%E5%8C%96%E5%9B%BE%E7%89%87.jpg?raw=true" alt="文化图片" class="w-full h-auto rounded-lg shadow-xl hover-scale">
+                </div>
+                <div class="md:col-span-2 bg-white/80 p-8 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold text-primary mb-4">历史起源与发展</h3>
+                    <p class="mb-4">傈僳族象达人面竹纸伞历史悠久，最早可追溯至清朝乾隆年间，距今已有300多年历史。它以滇西特有的人面竹为骨架，以当地手工制作的绵纸为伞面，经72道工序精心制作而成。</p>
+                    
+                    <h3 class="text-xl font-bold text-primary mb-4">制作工艺与文化符号</h3>
+                    <p class="mb-4">制作工艺独特，需经选竹、制骨、裱纸、绘画、上油等多道工序。伞面图案丰富多样，包括傈僳族图腾、自然景观、民间故事等，是傈僳族文化的重要载体。</p>
+                    
+                    <h3 class="text-xl font-bold text-primary mb-4">民族文化与民俗传统</h3>
+                    <p class="mb-4">傈僳族象达人面竹纸伞不仅是日常生活用品，更是傈僳族文化的重要象征。在傈僳族的传统节日、婚礼、祭祀等活动中，竹纸伞都扮演着重要角色。</p>
+                    
+                    <h3 class="text-xl font-bold text-primary mb-4">文化价值与传承意义</h3>
+                    <p>傈僳族象达人面竹纸伞是傈僳族智慧的结晶，具有极高的历史、文化和艺术价值。然而，随着时代的发展，这项传统技艺面临着失传的危险。因此，保护和传承傈僳族象达人面竹纸伞制作技艺，对于弘扬民族文化、促进文化多样性具有重要意义。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 制作工艺板块 -->
+    <section id="craft" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-center mb-12 text-primary">制作工艺</h2>
+            
+            <h3 class="text-xl font-bold text-primary mb-8 text-center">实物解读</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="bg-neutral rounded-lg overflow-hidden shadow-lg hover-scale">
+                    <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E5%8F%B7%E7%AB%B9.png?raw=true" alt="号竹" class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <h4 class="font-bold text-primary mb-2">号竹</h4>
+                        <p class="text-sm">精选人面竹，要求竹节长度适中，质地坚韧，无虫蛀。</p>
+                    </div>
+                </div>
+                <div class="bg-neutral rounded-lg overflow-hidden shadow-lg hover-scale">
+                    <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E5%81%9A%E9%AA%A8%E6%9E%B6.png?raw=true" alt="做骨架" class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <h4 class="font-bold text-primary mb-2">做骨架</h4>
+                        <p class="text-sm">将竹子削成薄片，制作伞骨，要求粗细均匀，结构牢固。</p>
+                    </div>
+                </div>
+                <div class="bg-neutral rounded-lg overflow-hidden shadow-lg hover-scale">
+                    <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E4%B8%8A%E4%BC%9E%E9%9D%A2%E5%8F%8A%E7%BB%98%E8%8A%B1.png?raw=true" alt="上伞面及绘花" class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <h4 class="font-bold text-primary mb-2">上伞面及绘花</h4>
+                        <p class="text-sm">将特制绵纸粘贴在伞骨上，然后绘制精美的图案。</p>
+                    </div>
+                </div>
+                <div class="bg-neutral rounded-lg overflow-hidden shadow-lg hover-scale">
+                    <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E4%B8%8A%E6%B2%B9.png?raw=true" alt="上油" class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <h4 class="font-bold text-primary mb-2">上油</h4>
+                        <p class="text-sm">在伞面涂抹天然桐油，增强伞的防水性和耐久性。</p>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 class="text-xl font-bold text-primary mt-16 mb-8 text-center">插画解读</h3>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E9%80%89%E7%AB%B9.jpg?raw=true" alt="选竹" class="rounded-lg shadow-md hover-scale">
+                <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E5%88%B6%E4%BC%9E%E9%AA%A8.jpg?raw=true" alt="制伞骨" class="rounded-lg shadow-md hover-scale">
+                <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E4%B8%8A%E4%BC%9E%E9%9D%A2.jpg?raw=true" alt="上伞面" class="rounded-lg shadow-md hover-scale">
+                <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E7%BB%98%E8%8A%B1.jpg?raw=true" alt="绘花" class="rounded-lg shadow-md hover-scale">
+                <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E4%B8%8A%E6%B2%B9.jpg?raw=true" alt="上油" class="rounded-lg shadow-md hover-scale">
+            </div>
+        </div>
+    </section>
+
+    <!-- 伞结构板块 -->
+    <section id="structure" class="py-20 bg-neutral">
+        <div class="container mx-auto px-4">
+            <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-center mb-12 text-primary">伞结构</h2>
+            
+            <h3 class="text-xl font-bold text-primary mb-8 text-center">实物解读</h3>
+            <div class="grid grid-cols-2 gap-6 mb-8">
+                <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E4%BC%9E%E8%A7%A3%E6%9E%84.png?raw=true" alt="伞解构" class="rounded-lg shadow-xl hover-scale">
+                <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E4%BC%9E%E9%87%8D%E6%9E%84.jpg?raw=true" alt="伞重构" class="rounded-lg shadow-xl hover-scale">
+            </div>
+            <div class="grid grid-cols-2 gap-6">
+                <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E5%9B%BE%E6%A1%88%E8%A6%81%E7%B4%A0%E5%80%9F%E9%89%B41.png?raw=true" alt="图案要素借鉴1" class="rounded-lg shadow-xl hover-scale">
+                <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E5%9B%BE%E6%A1%88%E8%A6%81%E7%B4%A0%E5%80%9F%E9%89%B42.png?raw=true" alt="图案要素借鉴2" class="rounded-lg shadow-xl hover-scale">
+            </div>
+            
+            <h3 class="text-xl font-bold text-primary mt-16 mb-8 text-center">插画解读</h3>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E7%BB%93%E6%9E%84.jpg?raw=true" alt="结构" class="rounded-lg shadow-md hover-scale">
+                <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E5%9B%BE%E6%A1%88.jpg?raw=true" alt="图案" class="rounded-lg shadow-md hover-scale">
+                <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E4%BC%9E%E9%AA%A8.jpg?raw=true" alt="伞骨" class="rounded-lg shadow-md hover-scale">
+                <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E8%A3%B8%E4%BC%9E.jpg?raw=true" alt="裸伞" class="rounded-lg shadow-md hover-scale">
+                <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E4%BC%9E%E5%9D%A0.jpg?raw=true" alt="伞坠" class="rounded-lg shadow-md hover-scale">
+            </div>
+        </div>
+    </section>
+
+    <!-- 技术创新板块 -->
+    <section id="innovation" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-center mb-12 text-primary">技术创新</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-neutral rounded-lg p-6 shadow-lg hover-scale">
+                    <div class="text-4xl text-primary mb-4 text-center">
+                        <i class="fa fa-flask"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-4 text-center">纳米二氧化钛涂层</h3>
+                    <p>创新性地开发出"内嵌式抗光衰涂层技术"，将纳米级二氧化钛材料掺杂碳膜，提升了油纸伞的防晒、防水、抗风等性能，UV防护指数达UPF50+，伞面光老化降解速率降低76%。</p>
+                </div>
+                <div class="bg-neutral rounded-lg p-6 shadow-lg hover-scale">
+                    <div class="text-4xl text-primary mb-4 text-center">
+                        <i class="fa fa-paint-brush"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-4 text-center">伞柄设计</h3>
+                    <p>人面竹纸伞的伞把选材和工艺独特，选用人面观音竹，其表面有天然的花纹，像人的脸，因此得名。竹节短而粗，质地坚硬，是制作伞把的理想材料。制作时，先将竹子锯成适当的长度，然后用刀将表面的竹青刮去，再用砂纸打磨光滑，最后涂上一层天然的桐油，使其更加美观耐用。</p>
+                </div>
+                <div class="bg-neutral rounded-lg p-6 shadow-lg hover-scale">
+                    <div class="text-4xl text-primary mb-4 text-center">
+                        <i class="fa fa-shield"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-4 text-center">防伪标识</h3>
+                    <p>研发多模态防伪认证体系，利用相变材料的动态响应特性与光学协同效应，实现"隐形-显形"双模态识别。当用特定波长的光照射时，防伪标识会显示出特定的图案和文字，而在普通光线下则看不到。这种防伪技术不仅提高了产品的安全性，也为消费者提供了一种全新的交互体验。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Q版IP形象展示板块 -->
+    <section id="ip" class="py-20 bg-neutral">
+        <div class="container mx-auto px-4">
+            <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-center mb-12 text-primary">Q版IP形象展示</h2>
+            <div class="grid grid-cols-3 md:grid-cols-9 gap-4">
+                <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/Q%E7%89%88IP%E5%BD%A2%E8%B1%A11.png?raw=true" alt="Q版IP形象1" class="rounded-lg shadow-md hover-scale">
+                <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E5%BD%A2%E8%B1%A12.png?raw=true" alt="Q版IP形象2" class="rounded-lg shadow-md hover-scale">
+                <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E5%BD%A2%E8%B1%A13.png?raw=true" alt="Q版IP形象3" class="rounded-lg shadow-md hover-scale">
+                <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E5%BD%A2%E8%B1%A14.png?raw=true" alt="Q版IP形象4" class="rounded-lg shadow-md hover-scale">
+                <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E5%BD%A2%E8%B1%A15.png?raw=true" alt="Q版IP形象5" class="rounded-lg shadow-md hover-scale">
+                <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E5%BD%A2%E8%B1%A16.png?raw=true" alt="Q版IP形象6" class="rounded-lg shadow-md hover-scale">
+                <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E5%BD%A2%E8%B1%A17.png?raw=true" alt="Q版IP形象7" class="rounded-lg shadow-md hover-scale">
+                <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E5%BD%A2%E8%B1%A18.png?raw=true" alt="Q版IP形象8" class="rounded-lg shadow-md hover-scale">
+                <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E5%BD%A2%E8%B1%A19.png?raw=true" alt="Q版IP形象9" class="rounded-lg shadow-md hover-scale">
+            </div>
+        </div>
+    </section>
+
+    <!-- 商城板块 -->
+    <section id="shop" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-center mb-12 text-primary">商城</h2>
+            
+            <h3 class="text-xl font-bold text-primary mb-8 text-center">无logo产品</h3>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                <div class="bg-neutral rounded-lg overflow-hidden shadow-lg hover-scale group">
+                    <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E7%AB%B9%E7%BA%B8%E4%BC%9E%E5%B1%95%E7%A4%BA1.png?raw=true" alt="竹纸伞展示1" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">竹纸伞展示1</h4>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-bold">¥88</span>
+                            <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="竹纸伞展示1" data-price="88">
+                                <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-neutral rounded-lg overflow-hidden shadow-lg hover-scale group">
+                    <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E7%AB%B9%E7%BA%B8%E4%BC%9E%E5%B1%95%E7%A4%BA2.png?raw=true" alt="竹纸伞展示2" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">竹纸伞展示2</h4>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-bold">¥88</span>
+                            <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="竹纸伞展示2" data-price="88">
+                                <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-neutral rounded-lg overflow-hidden shadow-lg hover-scale group">
+                    <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E7%AB%B9%E7%BA%B8%E4%BC%9E%E5%B1%95%E7%A4%BA3.png?raw=true" alt="竹纸伞展示3" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">竹纸伞展示3</h4>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-bold">¥88</span>
+                            <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="竹纸伞展示3" data-price="88">
+                                <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-neutral rounded-lg overflow-hidden shadow-lg hover-scale group">
+                    <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E7%AB%B9%E7%BA%B8%E4%BC%9E%E5%B1%95%E7%A4%BA4.png?raw=true" alt="竹纸伞展示4" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">竹纸伞展示4</h4>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-bold">¥88</span>
+                            <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="竹纸伞展示4" data-price="88">
+                                <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-neutral rounded-lg overflow-hidden shadow-lg hover-scale group">
+                    <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E8%BF%B7%E4%BD%A0%E5%B0%8F%E6%B2%B9%E4%BC%9E.jpg?raw=true" alt="迷你小油伞" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">迷你小油伞</h4>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-bold">¥88</span>
+                            <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="迷你小油伞" data-price="88">
+                                <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-neutral rounded-lg overflow-hidden shadow-lg hover-scale group">
+                    <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E7%B2%BE%E5%93%81%E6%B2%B9%E7%BA%B8%E4%BC%9E.jpg?raw=true" alt="精品油纸伞" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">精品油纸伞</h4>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-bold">¥88</span>
+                            <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="精品油纸伞" data-price="88">
+                                <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-neutral rounded-lg overflow-hidden shadow-lg hover-scale group">
+                    <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E8%8A%B1%E5%8D%89%E4%B8%BB%E9%A2%98.jpg?raw=true" alt="花卉主题伞" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">花卉主题伞</h4>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-bold">¥88</span>
+                            <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="花卉主题伞" data-price="88">
+                                <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-neutral rounded-lg overflow-hidden shadow-lg hover-scale group">
+                    <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E5%8A%A8%E7%89%A9%E4%B8%BB%E9%A2%98.jpg?raw=true" alt="动物主题伞" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">动物主题伞</h4>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-bold">¥88</span>
+                            <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="动物主题伞" data-price="88">
+                                <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-neutral rounded-lg overflow-hidden shadow-lg hover-scale group">
+                    <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E4%BA%BA%E7%89%A9%E4%B8%BB%E9%A2%98.jpg?raw=true" alt="人物主题伞" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">人物主题伞</h4>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-bold">¥88</span>
+                            <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="人物主题伞" data-price="88">
+                                <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 class="text-xl font-bold text-primary mt-16 mb-8 text-center">文创衍生物</h3>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                <div class="bg-neutral rounded-lg overflow-hidden shadow-lg hover-scale group">
+                    <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E6%8C%82%E7%89%8C.png?raw=true" alt="挂牌" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">挂牌</h4>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-bold">¥38</span>
+                            <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="挂牌" data-price="38">
+                                <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-neutral rounded-lg overflow-hidden shadow-lg hover-scale group">
+                    <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E7%BA%A2%E5%8C%85.png?raw=true" alt="红包" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">红包</h4>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-bold">¥18</span>
+                            <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="红包" data-price="18">
+                                <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-neutral rounded-lg overflow-hidden shadow-lg hover-scale group">
+                    <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E6%89%8B%E6%8F%90%E8%A2%8B.png?raw=true" alt="手提袋" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">手提袋</h4>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-bold">¥25</span>
+                            <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="手提袋" data-price="25">
+                                <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-neutral rounded-lg overflow-hidden shadow-lg hover-scale group">
+                    <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E7%BA%B8%E7%9B%92.png?raw=true" alt="纸盒" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">纸盒</h4>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-bold">¥35</span>
+                            <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="纸盒" data-price="35">
+                                <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-neutral rounded-lg overflow-hidden shadow-lg hover-scale group">
+                    <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E8%83%B6%E5%B8%A6.png?raw=true" alt="胶带" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">胶带</h4>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-bold">¥12</span>
+                            <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="胶带" data-price="12">
+                                <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-neutral rounded-lg overflow-hidden shadow-lg hover-scale group">
+                    <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E5%85%B6%E4%BB%96%E5%A6%82%E6%89%8B%E6%9C%BA%E5%A3%81%E7%BA%B8%E7%AD%89.jpg?raw=true" alt="手机壁纸等" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">手机壁纸等</h4>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-bold">¥9.9</span>
+                            <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="手机壁纸等" data-price="9.9">
+                                <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-neutral rounded-lg overflow-hidden shadow-lg hover-scale group">
+                    <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E5%B0%8F%E6%89%8B%E5%B7%A51.png?raw=true" alt="小手工1" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">小手工1</h4>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-bold">¥45</span>
+                            <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="小手工1" data-price="45">
+                                <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-neutral rounded-lg overflow-hidden shadow-lg hover-scale group">
+                    <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E5%B0%8F%E6%89%8B%E5%B7%A52.png?raw=true" alt="小手工2" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">小手工2</h4>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-bold">¥45</span>
+                            <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="小手工2" data-price="45">
+                                <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-neutral rounded-lg overflow-hidden shadow-lg hover-scale group">
+                    <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E5%B0%8F%E6%89%8B%E5%B7%A53.png?raw=true" alt="小手工3" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">小手工3</h4>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-bold">¥45</span>
+                            <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="小手工3" data-price="45">
+                                <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-neutral rounded-lg overflow-hidden shadow-lg hover-scale group">
+                    <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E5%B0%8F%E6%89%8B%E5%B7%A54.png?raw=true" alt="小手工4" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">小手工4</h4>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-bold">¥45</span>
+                            <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="小手工4" data-price="45">
+                                <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-neutral rounded-lg overflow-hidden shadow-lg hover-scale group">
+                    <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E6%B2%B9%E7%BA%B8%E4%BC%9E%E5%8F%B0%E7%81%AF.jpg?raw=true" alt="油纸伞台灯" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">油纸伞台灯</h4>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-bold">¥198</span>
+                            <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="油纸伞台灯" data-price="198">
+                                <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 class="text-xl font-bold text-primary mt-16 mb-8 text-center">logo文创产品</h3>
+            <div class="grid grid-cols-1 gap-8">
+                <div class="bg-neutral rounded-lg overflow-hidden shadow-lg">
+                    <button class="collapsible w-full bg-primary text-white py-4 px-6 text-left font-bold flex justify-between items-center">
+                        <span>笔记本</span>
+                        <i class="fa fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div class="collapsible-content hidden p-6 grid grid-cols-2 md:grid-cols-4 gap-6">
+                        <div class="bg-white rounded-lg overflow-hidden shadow-md hover-scale group">
+                            <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E7%AC%94%E8%AE%B0%E6%9C%AC1.png?raw=true" alt="笔记本1" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="p-4">
+                                <h4 class="font-bold mb-2">笔记本1</h4>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-primary font-bold">¥6.6</span>
+                                    <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="笔记本1" data-price="6.6">
+                                        <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg overflow-hidden shadow-md hover-scale group">
+                            <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E7%AC%94%E8%AE%B0%E6%9C%AC2.png?raw=true" alt="笔记本2" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="p-4">
+                                <h4 class="font-bold mb-2">笔记本2</h4>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-primary font-bold">¥6.6</span>
+                                    <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="笔记本2" data-price="6.6">
+                                        <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg overflow-hidden shadow-md hover-scale group">
+                            <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E7%AC%94%E8%AE%B0%E6%9C%AC3.png?raw=true" alt="笔记本3" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="p-4">
+                                <h4 class="font-bold mb-2">笔记本3</h4>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-primary font-bold">¥6.6</span>
+                                    <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="笔记本3" data-price="6.6">
+                                        <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg overflow-hidden shadow-md hover-scale group">
+                            <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E7%AC%94%E8%AE%B0%E6%9C%AC4.png?raw=true" alt="笔记本4" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="p-4">
+                                <h4 class="font-bold mb-2">笔记本4</h4>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-primary font-bold">¥6.6</span>
+                                    <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="笔记本4" data-price="6.6">
+                                        <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-neutral rounded-lg overflow-hidden shadow-lg">
+                    <button class="collapsible w-full bg-primary text-white py-4 px-6 text-left font-bold flex justify-between items-center">
+                        <span>抱枕</span>
+                        <i class="fa fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div class="collapsible-content hidden p-6 grid grid-cols-2 md:grid-cols-4 gap-6">
+                        <div class="bg-white rounded-lg overflow-hidden shadow-md hover-scale group">
+                            <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E6%8A%B1%E6%9E%951.png?raw=true" alt="抱枕1" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="p-4">
+                                <h4 class="font-bold mb-2">抱枕1</h4>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-primary font-bold">¥30</span>
+                                    <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="抱枕1" data-price="30">
+                                        <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg overflow-hidden shadow-md hover-scale group">
+                            <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E6%8A%B1%E6%9E%952.png?raw=true" alt="抱枕2" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="p-4">
+                                <h4 class="font-bold mb-2">抱枕2</h4>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-primary font-bold">¥30</span>
+                                    <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="抱枕2" data-price="30">
+                                        <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg overflow-hidden shadow-md hover-scale group">
+                            <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E6%8A%B1%E6%9E%953.png?raw=true" alt="抱枕3" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="p-4">
+                                <h4 class="font-bold mb-2">抱枕3</h4>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-primary font-bold">¥30</span>
+                                    <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="抱枕3" data-price="30">
+                                        <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg overflow-hidden shadow-md hover-scale group">
+                            <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E6%8A%B1%E6%9E%954.png?raw=true" alt="抱枕4" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="p-4">
+                                <h4 class="font-bold mb-2">抱枕4</h4>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-primary font-bold">¥30</span>
+                                    <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="抱枕4" data-price="30">
+                                        <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-neutral rounded-lg overflow-hidden shadow-lg">
+                    <button class="collapsible w-full bg-primary text-white py-4 px-6 text-left font-bold flex justify-between items-center">
+                        <span>袋子</span>
+                        <i class="fa fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div class="collapsible-content hidden p-6 grid grid-cols-2 md:grid-cols-4 gap-6">
+                        <div class="bg-white rounded-lg overflow-hidden shadow-md hover-scale group">
+                            <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E8%A2%8B%E5%AD%901.png?raw=true" alt="袋子1" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="p-4">
+                                <h4 class="font-bold mb-2">袋子1</h4>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-primary font-bold">¥2</span>
+                                    <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="袋子1" data-price="2">
+                                        <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg overflow-hidden shadow-md hover-scale group">
+                            <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E8%A2%8B%E5%AD%902.png?raw=true" alt="袋子2" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="p-4">
+                                <h4 class="font-bold mb-2">袋子2</h4>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-primary font-bold">¥2</span>
+                                    <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="袋子2" data-price="2">
+                                        <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg overflow-hidden shadow-md hover-scale group">
+                            <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E8%A2%8B%E5%AD%903.png?raw=true" alt="袋子3" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="p-4">
+                                <h4 class="font-bold mb-2">袋子3</h4>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-primary font-bold">¥2</span>
+                                     <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="袋子3" data-price="2">
+                                <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover-scale group">
+                    <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E8%A2%8B%E5%AD%904.png?raw=true" alt="袋子4" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">袋子4</h4>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-bold">¥2</span>
+                            <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="袋子4" data-price="2">
+                                <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-neutral rounded-lg overflow-hidden shadow-lg">
+                <button class="collapsible w-full bg-primary text-white py-4 px-6 text-left font-bold flex justify-between items-center">
+                    <span>广告牌</span>
+                    <i class="fa fa-chevron-down transition-transform duration-300"></i>
+                </button>
+                <div class="collapsible-content hidden p-6 grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover-scale group">
+                        <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E5%B9%BF%E5%91%8A%E7%89%8C1.png?raw=true" alt="广告牌1" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="p-4">
+                            <h4 class="font-bold mb-2">广告牌1</h4>
+                            <div class="flex justify-between items-center">
+                                <span class="text-primary font-bold">¥100</span>
+                                <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="广告牌1" data-price="100">
+                                    <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover-scale group">
+                        <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E5%B9%BF%E5%91%8A%E7%89%8C2.png?raw=true" alt="广告牌2" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="p-4">
+                            <h4 class="font-bold mb-2">广告牌2</h4>
+                            <div class="flex justify-between items-center">
+                                <span class="text-primary font-bold">¥100</span>
+                                <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="广告牌2" data-price="100">
+                                    <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover-scale group">
+                        <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E5%B9%BF%E5%91%8A%E7%89%8C3.png?raw=true" alt="广告牌3" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="p-4">
+                            <h4 class="font-bold mb-2">广告牌3</h4>
+                            <div class="flex justify-between items-center">
+                                <span class="text-primary font-bold">¥100</span>
+                                <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="广告牌3" data-price="100">
+                                    <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover-scale group">
+                        <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E5%B9%BF%E5%91%8A%E7%89%8C4.png?raw=true" alt="广告牌4" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="p-4">
+                            <h4 class="font-bold mb-2">广告牌4</h4>
+                            <div class="flex justify-between items-center">
+                                <span class="text-primary font-bold">¥100</span>
+                                <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="广告牌4" data-price="100">
+                                    <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-neutral rounded-lg overflow-hidden shadow-lg">
+                <button class="collapsible w-full bg-primary text-white py-4 px-6 text-left font-bold flex justify-between items-center">
+                    <span>海报</span>
+                    <i class="fa fa-chevron-down transition-transform duration-300"></i>
+                </button>
+                <div class="collapsible-content hidden p-6 grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover-scale group">
+                        <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E6%B5%B7%E6%8A%A51.png?raw=true" alt="海报1" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="p-4">
+                            <h4 class="font-bold mb-2">海报1</h4>
+                            <div class="flex justify-between items-center">
+                                <span class="text-primary font-bold">¥5</span>
+                                <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="海报1" data-price="5">
+                                    <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover-scale group">
+                        <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E6%B5%B7%E6%8A%A52.png?raw=true" alt="海报2" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="p-4">
+                            <h4 class="font-bold mb-2">海报2</h4>
+                            <div class="flex justify-between items-center">
+                                <span class="text-primary font-bold">¥5</span>
+                                <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="海报2" data-price="5">
+                                    <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover-scale group">
+                        <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E6%B5%B7%E6%8A%A53.png?raw=true" alt="海报3" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="p-4">
+                            <h4 class="font-bold mb-2">海报3</h4>
+                            <div class="flex justify-between items-center">
+                                <span class="text-primary font-bold">¥5</span>
+                                <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="海报3" data-price="5">
+                                    <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover-scale group">
+                        <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E6%B5%B7%E6%8A%A54.png?raw=true" alt="海报4" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="p-4">
+                            <h4 class="font-bold mb-2">海报4</h4>
+                            <div class="flex justify-between items-center">
+                                <span class="text-primary font-bold">¥5</span>
+                                <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="海报4" data-price="5">
+                                    <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-neutral rounded-lg overflow-hidden shadow-lg">
+                <button class="collapsible w-full bg-primary text-white py-4 px-6 text-left font-bold flex justify-between items-center">
+                    <span>手机壳</span>
+                    <i class="fa fa-chevron-down transition-transform duration-300"></i>
+                </button>
+                <div class="collapsible-content hidden p-6 grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover-scale group">
+                        <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E6%89%8B%E6%9C%BA%E5%A3%B31.png?raw=true" alt="手机壳1" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="p-4">
+                            <h4 class="font-bold mb-2">手机壳1</h4>
+                            <div class="flex justify-between items-center">
+                                <span class="text-primary font-bold">¥15</span>
+                                <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="手机壳1" data-price="15">
+                                    <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover-scale group">
+                        <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E6%89%8B%E6%9C%BA%E5%A3%B32.png?raw=true" alt="手机壳2" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="p-4">
+                            <h4 class="font-bold mb-2">手机壳2</h4>
+                            <div class="flex justify-between items-center">
+                                <span class="text-primary font-bold">¥15</span>
+                                <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="手机壳2" data-price="15">
+                                    <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover-scale group">
+                        <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E6%89%8B%E6%9C%BA%E5%A3%B33.png?raw=true" alt="手机壳3" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="p-4">
+                            <h4 class="font-bold mb-2">手机壳3</h4>
+                            <div class="flex justify-between items-center">
+                                <span class="text-primary font-bold">¥15</span>
+                                <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="手机壳3" data-price="15">
+                                    <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover-scale group">
+                        <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E6%89%8B%E6%9C%BA%E5%A3%B34.png?raw=true" alt="手机壳4" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="p-4">
+                            <h4 class="font-bold mb-2">手机壳4</h4>
+                            <div class="flex justify-between items-center">
+                                <span class="text-primary font-bold">¥15</span>
+                                <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="手机壳4" data-price="15">
+                                    <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-neutral rounded-lg overflow-hidden shadow-lg">
+                <button class="collapsible w-full bg-primary text-white py-4 px-6 text-left font-bold flex justify-between items-center">
+                    <span>手提袋</span>
+                    <i class="fa fa-chevron-down transition-transform duration-300"></i>
+                </button>
+                <div class="collapsible-content hidden p-6 grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover-scale group">
+                        <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E6%89%8B%E6%8F%90%E8%A2%8B1.png?raw=true" alt="手提袋1" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="p-4">
+                            <h4 class="font-bold mb-2">手提袋1</h4>
+                            <div class="flex justify-between items-center">
+                                <span class="text-primary font-bold">¥2</span>
+                                <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="手提袋1" data-price="2">
+                                    <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover-scale group">
+                        <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E6%89%8B%E6%8F%90%E8%A2%8B2.png?raw=true" alt="手提袋2" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="p-4">
+                            <h4 class="font-bold mb-2">手提袋2</h4>
+                            <div class="flex justify-between items-center">
+                                <span class="text-primary font-bold">¥2</span>
+                                <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="手提袋2" data-price="2">
+                                    <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover-scale group">
+                        <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E6%89%8B%E6%8F%90%E8%A2%8B3.png?raw=true" alt="手提袋3" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="p-4">
+                            <h4 class="font-bold mb-2">手提袋3</h4>
+                            <div class="flex justify-between items-center">
+                                <span class="text-primary font-bold">¥2</span>
+                                <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="手提袋3" data-price="2">
+                                    <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover-scale group">
+                        <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E6%89%8B%E6%8F%90%E8%A2%8B4.png?raw=true" alt="手提袋4" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="p-4">
+                            <h4 class="font-bold mb-2">手提袋4</h4>
+                            <div class="flex justify-between items-center">
+                                <span class="text-primary font-bold">¥2</span>
+                                <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="手提袋4" data-price="2">
+                                    <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-neutral rounded-lg overflow-hidden shadow-lg">
+                <button class="collapsible w-full bg-primary text-white py-4 px-6 text-left font-bold flex justify-between items-center">
+                    <span>鼠标垫</span>
+                    <i class="fa fa-chevron-down transition-transform duration-300"></i>
+                </button>
+                <div class="collapsible-content hidden p-6 grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover-scale group">
+                        <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E9%BC%A0%E6%A0%87%E5%9E%AB1.png?raw=true" alt="鼠标垫1" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="p-4">
+                            <h4 class="font-bold mb-2">鼠标垫1</h4>
+                            <div class="flex justify-between items-center">
+                                <span class="text-primary font-bold">¥10</span>
+                                <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="鼠标垫1" data-price="10">
+                                    <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover-scale group">
+                        <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E9%BC%A0%E6%A0%87%E5%9E%AB2.png?raw=true" alt="鼠标垫2" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="p-4">
+                            <h4 class="font-bold mb-2">鼠标垫2</h4>
+                            <div class="flex justify-between items-center">
+                                <span class="text-primary font-bold">¥10</span>
+                                <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="鼠标垫2" data-price="10">
+                                    <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover-scale group">
+                        <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E9%BC%A0%E6%A0%87%E5%9E%AB3.png?raw=true" alt="鼠标垫3" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="p-4">
+                            <h4 class="font-bold mb-2">鼠标垫3</h4>
+                            <div class="flex justify-between items-center">
+                                <span class="text-primary font-bold">¥10</span>
+                                <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="鼠标垫3" data-price="10">
+                                    <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover-scale group">
+                        <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E9%BC%A0%E6%A0%87%E5%9E%AB4.png?raw=true" alt="鼠标垫4" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="p-4">
+                            <h4 class="font-bold mb-2">鼠标垫4</h4>
+                            <div class="flex justify-between items-center">
+                                <span class="text-primary font-bold">¥10</span>
+                                <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="鼠标垫4" data-price="10">
+                                    <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-neutral rounded-lg overflow-hidden shadow-lg">
+                <button class="collapsible w-full bg-primary text-white py-4 px-6 text-left font-bold flex justify-between items-center">
+                    <span>纸杯</span>
+                    <i class="fa fa-chevron-down transition-transform duration-300"></i>
+                </button>
+                <div class="collapsible-content hidden p-6 grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover-scale group">
+                        <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E7%BA%B8%E6%9D%AF1.png?raw=true" alt="纸杯1" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="p-4">
+                            <h4 class="font-bold mb-2">纸杯1</h4>
+                            <div class="flex justify-between items-center">
+                                <span class="text-primary font-bold">¥1</span>
+                                <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="纸杯1" data-price="1">
+                                    <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover-scale group">
+                        <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E7%BA%B8%E6%9D%AF2.png?raw=true" alt="纸杯2" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="p-4">
+                            <h4 class="font-bold mb-2">纸杯2</h4>
+                            <div class="flex justify-between items-center">
+                                <span class="text-primary font-bold">¥1</span>
+                                <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="纸杯2" data-price="1">
+                                    <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover-scale group">
+                        <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E7%BA%B8%E6%9D%AF3.png?raw=true" alt="纸杯3" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="p-4">
+                            <h4 class="font-bold mb-2">纸杯3</h4>
+                            <div class="flex justify-between items-center">
+                                <span class="text-primary font-bold">¥1</span>
+                                <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="纸杯3" data-price="1">
+                                    <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover-scale group">
+                        <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E7%BA%B8%E6%9D%AF4.png?raw=true" alt="纸杯4" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="p-4">
+                            <h4 class="font-bold mb-2">纸杯4</h4>
+                            <div class="flex justify-between items-center">
+                                <span class="text-primary font-bold">¥1</span>
+                                <button class="add-to-cart bg-primary text-white px-3 py-1 rounded hover:bg-primary/90 transition-colors" data-name="纸杯4" data-price="1">
+                                    <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我们板块 -->
+    <section id="about" class="py-20 bg-neutral">
+        <div class="container mx-auto px-4">
+            <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-center mb-12 text-primary">关于我们</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-lg hover-scale">
+                    <h3 class="text-xl font-bold text-primary mb-4 text-center">LOGO设计</h3>
+                    <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/LOGO%E8%AE%BE%E8%AE%A1.jpg?raw=true" alt="LOGO设计" class="w-full h-auto rounded-lg mb-4">
+                    <p>LOGO设计以象达人面竹纸伞为核心元素，伞把竖直朝下象征技艺300年传承，伞面线条代表匠人坚守，绿红配色寓意非遗"红火"发展，整体设计简洁而富有文化内涵。</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg hover-scale">
+                    <h3 class="text-xl font-bold text-primary mb-4 text-center">商标效果图</h3>
+                    <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E5%95%86%E6%A0%87%E6%95%88%E6%9E%9C%E5%9B%BE.jpg?raw=true" alt="商标效果图" class="w-full h-auto rounded-lg mb-4">
+                    <p>商标效果图突出"象达人面竹纸伞"中英文字体设计，搭配传统纹样，既体现了品牌名称，又展现了传统文化元素，具有较高的辨识度和美观度。</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg hover-scale">
+                    <h3 class="text-xl font-bold text-primary mb-4 text-center">营业执照</h3>
+                    <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E8%90%A5%E4%B8%9A%E6%89%A7%E7%85%A7.jpg?raw=true" alt="营业执照" class="w-full h-auto rounded-lg mb-4">
+                    <p>我们拥有正规的营业执照，是合法经营的机构。这不仅是对我们自身的规范，也是对消费者的保障，让您可以放心购买我们的产品。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 核心团队板块 -->
+    <section id="team" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-center mb-12 text-primary">核心团队</h2>
+            <div class="grid md:grid-cols-3 gap-8 justify-items-center">
+                   <div class="bg-neutral p-6 rounded-lg shadow-lg hover-scale text-center">
+            <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E7%8E%8B%E4%BA%AE%E6%AF%95.png?raw=true"
+                alt="王亮毕" class="w-48 h-48 rounded-full mx-auto mb-4 object-cover border-4 border-white">
+            <h3 class="text-xl font-bold text-primary mb-2">王亮毕</h3>
+            <p class="text-gray-600">继承父辈技艺，创新定制伞面，以"伤痕累累的双手"守护传统工艺，致力于将象达人面竹纸伞推广到更广阔的市场。</p>
+        </div>
+        <div class="bg-neutral p-6 rounded-lg shadow-lg hover-scale text-center">
+            <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E6%9D%A8%E7%BF%A0%E4%B8%BD.png?raw=true"
+                alt="杨翠丽" class="w-48 h-48 rounded-full mx-auto mb-4 object-cover border-4 border-white">
+            <h3 class="text-xl font-bold text-primary mb-2">杨翠丽</h3>
+            <p class="text-gray-600">油纸伞绘画大师，王亮毕爱人，精通傈僳族图案绘制与工艺传承，为象达人面竹纸伞的图案设计注入了丰富的民族文化元素。</p>
+        </div>
+    </div>
+    </div>
+    </section>
+
+    <!-- 职责分工板块 -->
+    <section class="py-20 bg-neutral">
+        <div class="container mx-auto px-4">
+            <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-center mb-12 text-primary">职责分工</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold text-primary mb-6">总经理</h3>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fa fa-check text-secondary mt-1 mr-3"></i>
+                            <span>负责公司整体战略规划和发展方向的制定</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check text-secondary mt-1 mr-3"></i>
+                            <span>建立和完善公司的各项管理制度和流程</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check text-secondary mt-1 mr-3"></i>
+                            <span>监督和管理公司各项工作的开展和执行</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check text-secondary mt-1 mr-3"></i>
+                            <span>负责公司的对外合作和业务拓展</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold text-primary mb-6">财务部</h3>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fa fa-check text-secondary mt-1 mr-3"></i>
+                            <span>负责公司的财务核算和报表编制</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check text-secondary mt-1 mr-3"></i>
+                            <span>管理公司的资金运作和财务收支</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check text-secondary mt-1 mr-3"></i>
+                            <span>进行成本控制和财务分析</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check text-secondary mt-1 mr-3"></i>
+                            <span>负责公司的税务申报和财务管理</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold text-primary mb-6">宣传部</h3>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fa fa-check text-secondary mt-1 mr-3"></i>
+                            <span>负责公司品牌形象的建设和推广</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check text-secondary mt-1 mr-3"></i>
+                            <span>制定和执行公司的宣传和推广计划</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check text-secondary mt-1 mr-3"></i>
+                            <span>管理公司的社交媒体和宣传渠道</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check text-secondary mt-1 mr-3"></i>
+                            <span>组织和策划公司的宣传活动和文化活动</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold text-primary mb-6">策划部</h3>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fa fa-check text-secondary mt-1 mr-3"></i>
+                            <span>负责公司产品和项目的策划和规划</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check text-secondary mt-1 mr-3"></i>
+                            <span>制定和执行公司的市场调研和分析</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check text-secondary mt-1 mr-3"></i>
+                            <span>策划和组织公司的营销活动和促销活动</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check text-secondary mt-1 mr-3"></i>
+                            <span>负责公司项目的可行性研究和方案制定</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们板块 -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-center mb-12 text-primary">联系我们</h2>
+            <div class="max-w-3xl mx-auto text-center">
+                <div class="mb-10">
+                    <img src="https://github.com/hhhh95279527/hhhh95279527/blob/main/images/%E5%BE%AE%E4%BF%A1%E8%81%94%E7%B3%BB.jpg?raw=true"
+                        alt="微信联系" class="w-32 h-32 mx-auto mb-4 rounded-full object-cover shadow-lg">
+                    <p class="text-lg text-gray-700">扫描上方二维码，添加我们的微信</p>
+                </div>
+                <div class="mb-10">
+                    <p class="text-lg mb-2"><i class="fa fa-envelope text-primary mr-3"></i> 2303154253@qq.com</p>
+                </div>
+                <button id="contact-btn"
+                    class="bg-primary hover:bg-primary/90 text-white font-bold py-3 px-8 rounded-full inline-block transition-all duration-300 hover:scale-105 shadow-lg">
+                    留言咨询
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">象达人面竹纸伞</h3>
+                    <p class="text-gray-400">传承三百年非遗技艺，匠心打造文化瑰宝，让象达人面竹纸伞走进现代生活。</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">快速链接</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#culture" class="hover:text-white transition-colors">文化渊源</a></li>
+                        <li><a href="#craft" class="hover:text-white transition-colors">制作工艺</a></li>
+                        <li><a href="#shop" class="hover:text-white transition-colors">商城</a></li>
+                        <li><a href="#about" class="hover:text-white transition-colors">关于我们</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">联系我们</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-center">
+                            <i class="fa fa-weixin mr-2 text-primary"></i>
+                            <span>微信公众号：象达人面竹纸伞</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-envelope mr-2 text-primary"></i>
+                            <span>2303154253@qq.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-phone mr-2 text-primary"></i>
+                            <span>138-XXXX-XXXX</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">关注我们</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors text-2xl">
+                            <i class="fa fa-weibo"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors text-2xl">
+                            <i class="fa fa-wechat"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors text-2xl">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors text-2xl">
+                            <i class="fa fa-youtube-play"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>© 2025 象达人面竹纸伞. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 购物车模态框 -->
+    <div id="cart-modal" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center hidden">
+        <div class="bg-white rounded-lg shadow-2xl w-full max-w-md mx-4 overflow-hidden">
+            <div class="p-4 bg-primary text-white flex justify-between items-center">
+                <h3 class="font-bold">购物车</h3>
+                <button id="close-cart" class="text-white hover:text-gray-200">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            <div id="modal-cart-items" class="p-4 max-h-80 overflow-y-auto">
+                <!-- 模态框购物车项目将在这里动态添加 -->
+                <p class="text-center text-gray-500 py-10">购物车为空</p>
+            </div>
+            <div class="p-4 border-t flex flex-col space-y-3">
+                <div class="flex justify-between items-center">
+                    <span class="font-medium">总计:</span>
+                    <span id="modal-cart-total" class="font-bold text-primary">¥0.00</span>
+                </div>
+                <button class="bg-primary text-white py-2 rounded hover:bg-primary/90 transition-colors">结算</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function () {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('py-2', 'shadow-md');
+                navbar.classList.remove('py-3');
+            } else {
+                navbar.classList.add('py-3');
+                navbar.classList.remove('py-2', 'shadow-md');
+            }
+        });
+
+        // 移动端菜单切换
+        document.getElementById('menu-toggle').addEventListener('click', function () {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 折叠面板
+        const collapsibles = document.querySelectorAll('.collapsible');
+        collapsibles.forEach(collapsible => {
+            collapsible.addEventListener('click', function () {
+                this.classList.toggle('active');
+                const content = this.nextElementSibling;
+                if (content.classList.contains('hidden')) {
+                    content.classList.remove('hidden');
+                    this.querySelector('.fa-chevron-down').style.transform = 'rotate(180deg)';
+                } else {
+                    content.classList.add('hidden');
+                    this.querySelector('.fa-chevron-down').style.transform = 'rotate(0)';
+                }
+            });
+        });
+
+        // 购物车功能
+        const cartButton = document.getElementById('cart-button');
+        const cartDropdown = document.getElementById('cart-dropdown');
+        const closeCart = document.getElementById('close-cart');
+        const cartModal = document.getElementById('cart-modal');
+        const cartItems = document.getElementById('cart-items');
+        const modalCartItems = document.getElementById('modal-cart-items');
+        const cartCount = document.getElementById('cart-count');
+        const cartTotal = document.getElementById('cart-total');
+        const modalCartTotal = document.getElementById('modal-cart-total');
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+
+        let cart = [];
+
+        // 打开购物车
+        cartButton.addEventListener('click', function () {
+            cartDropdown.classList.toggle('hidden');
+            cartModal.classList.add('hidden');
+        });
+
+        // 关闭购物车
+        closeCart.addEventListener('click', function () {
+            cartModal.classList.add('hidden');
+        });
+
+        // 点击页面其他地方关闭购物车
+        document.addEventListener('click', function (event) {
+            if (!cartButton.contains(event.target) && !cartDropdown.contains(event.target)) {
+                cartDropdown.classList.add('hidden');
+            }
+            if (!cartButton.contains(event.target) && !cartModal.contains(event.target)) {
+                cartModal.classList.add('hidden');
+            }
+        });
+
+        // 添加到购物车
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const name = this.getAttribute('data-name');
+                const price = parseFloat(this.getAttribute('data-price'));
+
+                // 检查商品是否已在购物车中
+                const existingItem = cart.find(item => item.name === name);
+
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({
+                        name: name,
+                        price: price,
+                        quantity: 1
+                    });
+                }
+
+                updateCart();
+                cartDropdown.classList.add('hidden');
+                cartModal.classList.remove('hidden');
+            });
+        });
+
+        // 更新购物车
+        function updateCart() {
+            // 更新购物车数量
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+
+            // 更新购物车项目
+            if (cart.length > 0) {
+                cartItems.innerHTML = '';
+                modalCartItems.innerHTML = '';
+
+                let total = 0; // 修正分号为英文分号
+                cart.forEach(item => {
+                    const itemTotal = item.price * item.quantity;
+                    total += itemTotal;
+
+                    // 购物车下拉框项目
+                    const cartItem = document.createElement('div');
+                    cartItem.className = 'flex items-center justify-between p-2 border-b';
+                    cartItem.innerHTML = `
+                        <div>
+                            <h4 class="font-medium">${item.name}</h4>
+                            <p class="text-sm text-gray-500">¥${item.price} x ${item.quantity}</p>
+                        </div>
+                        <span class="font-bold">¥${itemTotal.toFixed(2)}</span>
+                    `;
+                    cartItems.appendChild(cartItem);
+
+                    // 购物车模态框项目
+                    const modalCartItem = document.createElement('div');
+                    modalCartItem.className = 'flex items-center justify-between p-2 border-b';
+                    modalCartItem.innerHTML = `
+                        <div>
+                            <h4 class="font-medium">${item.name}</h4>
+                            <p class="text-sm text-gray-500">¥${item.price} x ${item.quantity}</p>
+                        </div>
+                        <span class="font-bold">¥${itemTotal.toFixed(2)}</span>
+                    `;
+                    modalCartItems.appendChild(modalCartItem);
+                });
+
+                // 更新总计
+                cartTotal.textContent = `¥${total.toFixed(2)}`;
+                modalCartTotal.textContent = `¥${total.toFixed(2)}`;
+            } else {
+                cartItems.innerHTML = '<p class="text-center text-sm text-gray-500">购物车为空</p>';
+                modalCartItems.innerHTML = '<p class="text-center text-gray-500 py-10">购物车为空</p>';
+                cartTotal.textContent = '¥0.00';
+                modalCartTotal.textContent = '¥0.00';
+            }
+        }
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+
+                    // 关闭移动端菜单
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                }
+            });
+        });
+
+        // 留言咨询按钮
+        document.getElementById('contact-btn').addEventListener('click', function () {
+            alert('感谢您的咨询，我们会尽快与您联系！');
+        });
+    </script>
+</body>
+
+</html>
